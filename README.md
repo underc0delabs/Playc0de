@@ -1,0 +1,268 @@
+# Playc0de: E2E Automation Framework
+
+<p align="center">
+  <img src="https://www.lambdatest.com/resources/images/header/Playwright_logo.svg"/>
+</p>
+<p align="center">
+  <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg"/>
+  <img src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg"/>
+  <img src="https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg"/>
+</p>
+<p align="center">
+  <img src="https://www.vectorlogo.zone/logos/google_chrome/google_chrome-icon.svg"/>
+  <img src="https://www.vectorlogo.zone/logos/firefox/firefox-icon.svg"/>
+  <img src="https://www.vectorlogo.zone/logos/microsoft_edge/microsoft_edge-icon.svg"/>
+  <img src="https://www.vectorlogo.zone/logos/apple_safari/apple_safari-icon.svg"/>
+</p>
+
+# Table of content
+
+You will find the following info on this README:
+
+- About the project
+- Upcoming features
+- Build with
+- Recommendations
+- Project structure
+- Getting started
+- Prerequisites
+- Installation
+- Configuration
+- Commands
+- Reporting
+- Lighthouse
+- Docker
+
+## About the project
+
+This project is based on Microsoft Playwright for end-to-end testing. Playc0de plans to be a robust and versatile framework while providing efficient test tools and patterns. 
+
+Top Features:
+
+- Easy setup 
+- Easy configuration
+- Auto-waits for elements
+- Created test for APIs
+- Support for Cucumber Steps and @Tags
+- Support for Desktop Chrome|Chromium|Firefox|Edge|Webkit and Mobile Chrome|Safari
+- Support for more than 100 mobile devices
+- Support local test enviroments
+- Screenshots, videos, traces and timelines for in-depth details of the Test
+- Watch mode to review and fix test cases in real time
+- Support for multiple Reporters, including Azure Pipelines
+- Test runs are up to 40% faster than other Frameworks
+
+Bonus:
+
+- Easy setup for multiple environments
+- Easy setup for test data
+- GitHub Copilot friendly
+
+### Upcoming features:
+
+- Stress / Performance testing
+- CSV/XLS actions
+- Text OCR for PDF files
+
+### Build With
+
+- [Playwright](https://playwright.dev)
+- [Typescript](https://www.typescriptlang.org/)
+- [Eslint](https://eslint.org/)
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+- [Allure](https://www.npmjs.com/package/allure-playwright)
+- [Axios](https://www.npmjs.com/package/axios)
+- [Open-CLI](https://www.npmjs.com/package/open-cli)
+
+### Recommendations
+
+IDE:
+- Visual Studio Code
+
+Extensions:
+- GitHub Copilot
+- Error Lens
+
+### Project structure
+
+```
+.
+├── node_modules
+├── pageObjects
+│   ├── LoginPage.ts
+│   └── ProfilePage.ts
+├── reports
+│   ├── allure-reports
+│   ├── artifacts
+│   ├── html-reports
+│   └── lighthouse
+├── src
+│   ├── api
+│   │   └── Library.ts
+│   ├── core
+│   │   ├── DataHandler.ts
+│   │   └── TestHandler.ts
+│   ├── http
+│   │   ├── HttpClient.ts
+│   │   └── AxiosHttpClient.ts
+│   └── AuthConfig.ts
+├── tests
+│   ├── login.test.ts
+│   ├── profile.test.ts
+│   └── api
+│       └── library.test.ts
+├── utils
+│   ├── lighthouse.js
+│   └── testConfig.ts
+├── .dockerignore
+├── .gitignore
+├── Dockerfile
+├── global-setup.ts
+├── package-lock.json
+├── package.json
+├── playwright.config.ts
+└── README.md
+```
+
+## Getting Started
+
+### Prerequisites
+
+You will need the following to run this Framework:
+
+- NodeJS: 
+```sh
+  https://nodejs.org/en/download/
+  ```
+- Java 8 or higher: 
+```sh
+  https://www.java.com/es/download/
+  ```
+- Allure commandline: 
+```sh
+  npm i allure-commandline
+  ```
+
+  ### Installation
+
+1. Clone the repository using this project:
+```sh
+https://github.com/LucaAhumada/playc0de
+```
+
+2. Install packages and dependencies:
+```sh
+npm i
+```
+
+3. If first time installation, download all browsers to run the test:
+```sh
+npx playwright install
+```
+
+4. Verify installation by running the following command:
+```sh
+ENV=qa npx playwright test
+```
+
+## Configuration
+
+1. Review and adjust your desired configuration at `playwright.config.ts`
+
+2. Adjust the test data for each Enviroment in `testConfig.ts`
+
+3. If more than two Enviroments, add them in `./core/dataHandler`
+
+### Commands
+
+
+1. Run all test
+```JS
+ENV=qa npm run test
+```
+
+2. If you need to debug or explore test, run in watch mode:
+```JS
+ENV=qa npm run test:ui
+```
+
+3. Run test with specific @tag
+```JS
+ENV=qa npx playwright test --grep "@tag"
+```
+
+4. Generate Allure report:
+```JS
+npm run report
+```
+
+5. Record new test scripts:
+```JS
+npm run record
+```
+
+6. Open trace viewer to debg Failed test:
+```JS
+npm run trace
+```
+trace.zip file normally found at `./reports/artifacts`
+
+7. To run test on a single browser:
+```JS
+ENV=qa npm run test:chrome
+```
+Chrome by default, but you can change on `./package.json`
+
+7. For additional commands, you can check Playwright Docs: https://playwright.dev/docs/running-tests
+
+8. For custom commands, you should add them in `./package.json`
+
+## Reporting
+
+- HTML report will be generated by default
+- Allure report can be generated manually after each run with the corresponding command
+- Screenshots, videos and trace files will be generated in `./reports/artifacts`
+- Evidence will be generated only for failed test. You can change this setting in `playwright.config.ts`
+
+## Lighthouse
+
+Lighthouse is an open-source, automated tool for improving the performance, quality, and correctness of your web apps. Lighthouse will run auditos for performance, accessibility, PWA, SEO and much more. 
+
+### Configuration
+
+1. Open the lighthouse file in `./utils/lighthouse.js`
+2. Replace the URL with the desired URL to test
+3. To run audits use the following command:
+```JS
+npm run audit:desktop
+npm run audit:mobile
+```
+
+## Docker
+
+1. Build the image from Dockerfile. Replace "Playc0de" with the desired name for your image:
+```JS
+docker build . -f ./Dockerfile -t playc0de
+```
+
+2. Spawn a new container and run the test. Replace "Playc0de" with the same name as first step.
+```JS
+docker run --name myNewContainer playc0de
+```
+
+For command customization, kindly edit the CMD at `./Dockerfile`
+
+# Credits
+
+## Architect, creator and developer of this framework
+```sd
+    * Luca Ahumada
+```
+## Distributed by
+```sd
+    * Underc0de.org
+```
+
+## Contributing Developers
+```sd    
+```

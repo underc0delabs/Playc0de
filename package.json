@@ -1,0 +1,30 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:chrome": "npx playwright test --project=chrome",
+    "record": "npx playwright codegen",
+    "report": "allure serve ./reports/allure-results",
+    "trace": "npx playwright show-trace",
+    "audit:desktop": "node ./utils/lighthouse.js desktop && open-cli ./reports/lighthouse/LighthouseReport.html",
+    "audit:mobile": "node ./utils/lighthouse.js mobile && open-cli ./reports/lighthouse/LighthouseReport.html"
+  },
+  "keywords": [],
+  "author": "Luca Ahumada",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.34.3",
+    "allure-playwright": "^2.4.0",
+    "lighthouse": "^9.6.8",
+    "npm": "^9.6.7",
+    "open-cli": "^7.2.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
