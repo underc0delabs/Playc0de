@@ -40,16 +40,16 @@ This project is based on Microsoft Playwright for end-to-end testing. Playc0de p
 Top Features:
 
 - Easy setup 
-- Easy configuration
 - Auto-waits for elements
-- Created test for APIs
+- API testing 
+- Accessibility testing
 - Support for Cucumber Steps and @Tags
 - Support for Desktop Chrome|Chromium|Firefox|Edge|Webkit and Mobile Chrome|Safari
 - Support for more than 100 mobile devices
 - Support local test enviroments
 - Screenshots, videos, traces and timelines for in-depth details of the Test
 - Watch mode to review and fix test cases in real time
-- Support for multiple Reporters, including Azure Pipelines
+- Support for multiple and custom Reporters, including Azure Pipelines
 - Test runs are up to 40% faster than other Frameworks
 
 Bonus:
@@ -62,7 +62,7 @@ Bonus:
 
 - Stress / Performance testing
 - CSV/XLS actions
-- Text OCR for PDF files
+- Extract text from PDF files
 
 ### Build With
 
@@ -256,13 +256,9 @@ For command customization, kindly edit the CMD at `./Dockerfile`
 
 ## Architect, creator and developer of this framework
 ```sd
-    * Luca Ahumada
+    https://github.com/LucaAhumada
 ```
 ## Distributed by
 ```sd
-    * Underc0de.org
-```
-
-## Contributing Developers
-```sd    
+    * https://underc0de.org
 ```
