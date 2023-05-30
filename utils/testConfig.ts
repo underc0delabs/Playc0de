@@ -23,3 +23,16 @@ export const UAT = {
         "city": ""
     }
 }
+
+export const PROD = {
+    "baseURL": "",
+    "username": "",
+    "password": "",
+    "data": {
+        "name": "",
+        "lastName": "",
+        "birthdate": "",
+        "adress": "",
+        "city": ""
+    }
+}

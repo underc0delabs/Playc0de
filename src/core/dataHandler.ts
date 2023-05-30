@@ -1,18 +1,29 @@
-import { QA, UAT } from '../../utils/testConfig';
+import { QA, UAT, PROD } from '../../utils/testConfig';
 
 export class Enviroment {
     private readonly env: any;
 
     constructor(ENV: string) {
+        let environment: { [key: string]: any } = {};
+
         switch (ENV) {
             case 'qa':
-                this.env = QA;
+                environment = QA;
                 break;
             case 'uat':
-                this.env = UAT;
+                environment = UAT;
                 break;
-            default:
-                throw new Error('${ENV} is and invalid argument. Please Try again. Example: "ENV=qa npm run test"');
+            case 'prod':
+                environment = PROD;
+                break;
+        }
+
+        // Checking if environment configuration exists and has baseURL
+        if ('baseURL' in environment && environment.baseURL !== '') {
+            this.env = environment;
+        } else {
+            console.error(`The configuration for ${ENV} does not exist or does not have a baseURL. Please check your testConfig.ts file. Exiting the process.`);
+            process.exit(1);
         }
     }
 
