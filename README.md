@@ -138,10 +138,6 @@ You will need the following to run this Framework:
 ```sh
   https://www.java.com/es/download/
   ```
-- Allure commandline: 
-```sh
-  npm i allure-commandline
-  ```
 
   ### Installation
 
