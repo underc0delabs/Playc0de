@@ -147,7 +147,7 @@ You will need the following to run this Framework:
 
 1. Clone the repository using this project:
 ```sh
-https://github.com/LucaAhumada/playc0de
+https://github.com/underc0delabs/playc0de
 ```
 
 2. Install packages and dependencies:
