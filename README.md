@@ -167,55 +167,52 @@ ENV=qa npx playwright test
 
 ## Configuration
 
-1. Review and adjust your desired configuration at `playwright.config.ts`
+1. Review and adjust your desired configuration at `./playwright.config.ts`
 
-2. Adjust the test data for each Enviroment in `testConfig.ts`
+2. Adjust the test data for each Enviroment in `./utils/testConfig.ts`
 
-3. If more than two Enviroments, add them in `./core/dataHandler`
+3. If more than two Enviroments, add them in `/src/core/dataHandler.ts`
 
 ### Commands
 
-
-1. Run all test
-```JS
+1. Run all the test
+```bash
 ENV=qa npm run test
 ```
 
-2. If you need to debug or explore test, run in watch mode:
-```JS
+2. To debug or explore test, run in **watch mode:**
+```bash
 ENV=qa npm run test:ui
 ```
 
-3. Run test with specific @tag
-```JS
-ENV=qa npx playwright test --grep "@tag"
+3. Run test with specific **@tag**
+```bash
+ENV=qa npm playwright test --grep "@tag"
 ```
 
-4. Generate Allure report:
-```JS
+4. Generate Allure report after test run:
+```bash
 npm run report
 ```
 
-5. Record new test scripts:
-```JS
+5. Record new test script
+```bash
 npm run record
 ```
 
-6. Open trace viewer to debg Failed test:
-```JS
+6. Open trace viewer to debug failed test. Please note that artifact **trace.zip** normally found at: `./reports/artifacts`
+```bash
 npm run trace
 ```
-trace.zip file normally found at `./reports/artifacts`
 
-7. To run test on a single browser:
-```JS
-ENV=qa npm run test:chrome
+7. Run test on a single browser (Chrome by default):
+```bash
+ENV=qa npm run test:browser
 ```
-Chrome by default, but you can change on `./package.json`
 
-7. For additional commands, you can check Playwright Docs: https://playwright.dev/docs/running-tests
+8. For additional commands, you can check **Playwright Docs:** https://playwright.dev/docs/running-tests
 
-8. For custom commands, you should add them in `./package.json`
+9. For custom commands, you should add them in `./package.json`
 
 ## Reporting
 

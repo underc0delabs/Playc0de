@@ -12,7 +12,7 @@ export class Enviroment {
                 this.env = UAT;
                 break;
             default:
-                throw new Error('${ENV} is and invalid argument. Please Try again. Example: "npx ENV=uat|qa npm run test"');
+                throw new Error('${ENV} is and invalid argument. Please Try again. Example: "ENV=qa npm run test"');
         }
     }
 
