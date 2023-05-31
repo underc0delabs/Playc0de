@@ -11,7 +11,8 @@
     "report": "allure serve ./reports/allure-results",
     "trace": "npx playwright show-trace",
     "audit:desktop": "node ./utils/lighthouse.js desktop && open-cli ./reports/lighthouse/LighthouseReport.html",
-    "audit:mobile": "node ./utils/lighthouse.js mobile && open-cli ./reports/lighthouse/LighthouseReport.html"
+    "audit:mobile": "node ./utils/lighthouse.js mobile && open-cli ./reports/lighthouse/LighthouseReport.html",
+    "create:class": "node ./utils/class-converter.js"
   },
   "keywords": [],
   "author": "Luca Ahumada",

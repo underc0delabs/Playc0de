@@ -44,7 +44,7 @@ test('@Regression Change location', async ({ profilePage }) => {
 test.afterEach(async ({ profilePage }) => {
 
     await test.step('Click the save button', async () => {
-        await profilePage.clikSaveProfileChanges();
+        await profilePage.clickSaveProfileChanges();
     });
 
     await test.step('Verify the changed successfully message', async () => {
@@ -56,7 +56,7 @@ test.afterEach(async ({ profilePage }) => {
     });
 
     await test.step('Close the browser', async () => {
-        await profilePage.context.close();
+        await profilePage.closeContext();
     });
 });
 

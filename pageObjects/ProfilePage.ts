@@ -1,10 +1,10 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
+import { BasePage } from '../src/core/commonActions';
 import { Enviroment } from '../src/core/dataHandler';
 
 let env: Enviroment = new Enviroment(process.env.ENV!);
-export class ProfilePage {
-    readonly page: Page;
-    readonly context: BrowserContext;
+
+export class ProfilePage extends BasePage {
     readonly PROFILE_DROPDOWN_MENU: Locator;
     readonly PROFILE_DETAILS_BUTTON: Locator;
     readonly PERSONAL_TEXT: Locator;
@@ -19,8 +19,7 @@ export class ProfilePage {
     readonly SUCCESS_MESSAGE: Locator;
 
     constructor(page: Page, context: BrowserContext) {
-        this.page = page;
-        this.context = context;
+        super(page, context);
         this.PROFILE_DROPDOWN_MENU = this.page.getByRole('link', { name: '▼' });
         this.PROFILE_DETAILS_BUTTON = this.page.getByRole('link', { name: 'Detalles del Perfil' });
         this.PERSONAL_TEXT = this.page.getByLabel('Texto Personal');
@@ -36,49 +35,49 @@ export class ProfilePage {
     }
 
     async navigateToURL(): Promise<void> {
-        await this.page.goto(env.baseURL);
+        await this.goto(env.baseURL);
     }
 
     async clickProfileDropdownMenu(): Promise<void> {
-        await this.PROFILE_DROPDOWN_MENU.click();
+        await this.click(this.PROFILE_DROPDOWN_MENU);
     }
 
     async clickProfileDetailsButton(): Promise<void> {
-        await this.PROFILE_DETAILS_BUTTON.click();
+        await this.click(this.PROFILE_DETAILS_BUTTON);
     }
 
     async fillBirthdate(year: string, month: string, day: string): Promise<void> {
-        await this.BIRTHDATE_YEAR.fill(year);
-        await this.BIRTHDATE_MONTH.fill(month);
-        await this.BIRTHDATE_DAY.fill(day);
+        await this.fill(this.BIRTHDATE_YEAR, year);
+        await this.fill(this.BIRTHDATE_MONTH, month);
+        await this.fill(this.BIRTHDATE_DAY, day);
     }
 
     async fillPersonalText(text: string): Promise<void> {
-        await this.PERSONAL_TEXT.fill(text);
+        await this.fill(this.PERSONAL_TEXT, text);
     }
 
     async fillSignature(text: string): Promise<void> {
-        await this.SIGNATURE.fill(text);
+        await this.fill(this.SIGNATURE, text);
     }
 
     async fillLocation(text: string): Promise<void> {
-        await this.LOCATION.fill(text);
+        await this.fill(this.LOCATION, text);
     }
 
     async clickAvatarUrlMenu(): Promise<void> {
-        await this.AVATAR_URL_MENU.click();
+        await this.click(this.AVATAR_URL_MENU);
     }
 
     async fillAvatarUrl(text: string): Promise<void> {
-        await this.AVATAR_URL_INPUT.fill(text);
+        await this.fill(this.AVATAR_URL_INPUT, text);
     }
 
-    async clikSaveProfileChanges(): Promise<void> {
-        await this.SAVE_BUTTON.click();
+    async clickSaveProfileChanges(): Promise<void> {
+        await this.click(this.SAVE_BUTTON);
     }
 
     async verifySuccessMessage(): Promise<void> {
-        await expect(this.SUCCESS_MESSAGE, 'Should have profile updated sucessfully').toBeVisible();
+        await expect(this.SUCCESS_MESSAGE, 'Should have profile updated successfully').toBeVisible();
     }
 
     async cleanProfile(): Promise<void> {
@@ -88,7 +87,7 @@ export class ProfilePage {
         await this.fillLocation('');
         await this.clickAvatarUrlMenu();
         await this.fillAvatarUrl('');
-        await this.clikSaveProfileChanges();
+        await this.clickSaveProfileChanges();
     }
-
 }
+

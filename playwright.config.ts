@@ -52,21 +52,21 @@ export default defineConfig({
       use: { channel: 'chrome' },
     },
 
-    //    {
-    //      name: 'firefox',
-    //      use: { ...devices['Desktop Firefox'] },
-    //    },
-    //
-    //    {
-    //      name: 'Microsoft Edge',
-    //      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    //    },
-    //
-    //    {
-    //      name: 'webkit',
-    //      use: { ...devices['Desktop Safari'] },
-    //    },
-    //
+    // {
+    //  name: 'firefox',
+    //  use: { ...devices['Desktop Firefox'] },
+    // },
+
+    // {
+    //  name: 'Microsoft Edge',
+    //  use: { channel: 'msedge' },
+    // },
+
+    // {
+    //  name: 'webkit',
+    //  use: { ...devices['Desktop Safari'] },
+    // },
+
     {
       name: 'Mobile Chrome',
       use: { ...devices['Pixel 5'] },
