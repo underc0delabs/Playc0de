@@ -1,4 +1,5 @@
 import test from '../src/core/testHandler';
+import logger from '../src/core/logger';  // Import logger
 
 // We can use steps like this to reproduce Cucumber formatting
 test.beforeEach(async ({ loginPage, profilePage }) => {
@@ -17,27 +18,38 @@ test.beforeEach(async ({ loginPage, profilePage }) => {
 
 test('@Regression Change birthdate', async ({ profilePage }) => {
     await test.step('Fill the user birthdate', async () => {
-        await profilePage.fillBirthdate('1990', '10', '25');
+        let birthdate = { year: '1990', month: '10', day: '25' };
+        await profilePage.fillBirthdate(birthdate.year, birthdate.month, birthdate.day);
+        // Log
+        logger.info(`User birthdate filled with: Year - ${birthdate.year}, Month - ${birthdate.month}, Day - ${birthdate.day}`);
     });
-
 });
 
 test('@Regression Change personal text', async ({ profilePage }) => {
     await test.step('Fill the user personal text', async () => {
-        await profilePage.PERSONAL_TEXT.fill('This is a personal text test');
+        let personalText = 'This is a personal text test';
+        await profilePage.PERSONAL_TEXT.fill(personalText);
+        // Log
+        logger.info(`User personal text filled with: ${personalText}`);
     });
 
 });
 
 test('@Regression Change signature', async ({ profilePage }) => {
     await test.step('Fill the user signature', async () => {
-        await profilePage.SIGNATURE.fill('This is a signature test');
+        let signature = 'This is a signature test';
+        await profilePage.SIGNATURE.fill(signature);
+        // Log
+        logger.info(`User signature filled with: ${signature}`);
     });
 });
 
 test('@Regression Change location', async ({ profilePage }) => {
     await test.step('Fill the user location', async () => {
-        await profilePage.LOCATION.fill('Argentina');
+        let location = 'Argentina';
+        await profilePage.LOCATION.fill(location);
+        // Log
+        logger.info(`User location filled with: ${location}`);
     });
 });
 
@@ -59,4 +71,3 @@ test.afterEach(async ({ profilePage }) => {
         await profilePage.closeContext();
     });
 });
-
