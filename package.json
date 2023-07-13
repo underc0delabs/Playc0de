@@ -7,6 +7,7 @@
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
     "test:chrome": "npx playwright test --project=chrome",
+    "test:load": "k6 run ./performance/runner.js",
     "record": "npx playwright codegen",
     "report": "allure serve ./reports/allure-results",
     "trace": "npx playwright show-trace",
@@ -22,9 +23,11 @@
     "@types/node": "^20.2.5",
     "allure-commandline": "^2.22.1",
     "allure-playwright": "^2.4.0",
+    "k6": "^0.0.0",
     "lighthouse": "^9.6.8",
     "npm": "^9.6.7",
     "open-cli": "^7.2.0",
+    "playwright": "^1.36.0",
     "typescript": "^5.0.4"
   },
   "dependencies": {

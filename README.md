@@ -1,8 +1,9 @@
 # Playc0de: E2E Automation Framework
 
 <p align="center">
-  <img src="https://www.lambdatest.com/resources/images/header/Playwright_logo.svg"/>
+  <img src="https://i.imgur.com/QDotgKj.png"/>
 </p>
+
 <p align="center">
   <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg"/>
   <img src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg"/>
