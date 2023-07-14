@@ -92,16 +92,23 @@ Extensions:
 ├── pageObjects
 │   ├── LoginPage.ts
 │   └── ProfilePage.ts
+├── performance
+│   ├── runner.js
+│   └── test-scenario.js
+├── recordings
+│   ├── recorded-script.ts
 ├── reports
 │   ├── allure-reports
 │   ├── artifacts
 │   ├── html-reports
-│   └── lighthouse
+│   ├── lighthouse
+│   └── logs
 ├── src
 │   ├── api
 │   │   └── Library.ts
 │   ├── core
 │   │   ├── DataHandler.ts
+│   │   ├── logger.ts
 │   │   └── TestHandler.ts
 │   ├── http
 │   │   ├── HttpClient.ts
@@ -119,6 +126,7 @@ Extensions:
 ├── .gitignore
 ├── Dockerfile
 ├── global-setup.ts
+├── LICENCE
 ├── package-lock.json
 ├── package.json
 ├── playwright.config.ts
@@ -184,7 +192,7 @@ ENV=qa npm run test:ui
 
 3. Run test with specific **@tag**
 ```bash
-ENV=qa npm playwright test --grep "@tag"
+ENV=qa npx playwright test --grep "@tag"
 ```
 
 4. Generate Allure report after test run:
@@ -204,7 +212,7 @@ npm run trace
 
 7. Run test on a single browser (Chrome by default):
 ```bash
-ENV=qa npm run test:browser
+ENV=qa npm run test:chrome
 ```
 
 8. For additional commands, you can check **Playwright Docs:** https://playwright.dev/docs/running-tests

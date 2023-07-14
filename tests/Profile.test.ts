@@ -21,7 +21,7 @@ test('@Regression Change birthdate', async ({ profilePage }) => {
         let birthdate = { year: '1990', month: '10', day: '25' };
         await profilePage.fillBirthdate(birthdate.year, birthdate.month, birthdate.day);
         // Log
-        logger.info(`User birthdate filled with: Year - ${birthdate.year}, Month - ${birthdate.month}, Day - ${birthdate.day}`);
+        // logger.info(`User birthdate filled with: Year - ${birthdate.year}, Month - ${birthdate.month}, Day - ${birthdate.day}`);
     });
 });
 
@@ -30,7 +30,7 @@ test('@Regression Change personal text', async ({ profilePage }) => {
         let personalText = 'This is a personal text test';
         await profilePage.PERSONAL_TEXT.fill(personalText);
         // Log
-        logger.info(`User personal text filled with: ${personalText}`);
+        // logger.info(`User personal text filled with: ${personalText}`);
     });
 
 });
@@ -40,7 +40,7 @@ test('@Regression Change signature', async ({ profilePage }) => {
         let signature = 'This is a signature test';
         await profilePage.SIGNATURE.fill(signature);
         // Log
-        logger.info(`User signature filled with: ${signature}`);
+        // logger.info(`User signature filled with: ${signature}`);
     });
 });
 
@@ -49,7 +49,7 @@ test('@Regression Change location', async ({ profilePage }) => {
         let location = 'Argentina';
         await profilePage.LOCATION.fill(location);
         // Log
-        logger.info(`User location filled with: ${location}`);
+        // logger.info(`User location filled with: ${location}`);
     });
 });
 
